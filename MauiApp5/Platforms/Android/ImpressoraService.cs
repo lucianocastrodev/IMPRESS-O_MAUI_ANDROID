@@ -98,8 +98,9 @@ namespace MauiApp5.Platforms.Android
             sb.AppendLine(Line());
 
             // --- Rodapé ---
-            sb.AppendLine(Center("*** NÃO É DOCUMENTO FISCAL ***"));
-            sb.AppendLine(Center("OBRIGADO PELA PREFERÊNCIA!"));
+            sb.AppendLine(Center("*** DOCUMENTO SEM VALIDADE FISCAL ***"));
+            sb.AppendLine(Center(""));
+            sb.AppendLine(Center("OBRIGADO, VOLTE SEMPRE!"));           
             sb.AppendLine(Center("www.lanchonetesaborbom.com.br"));
             sb.AppendLine(Center("(14) 99999-9999"));
 

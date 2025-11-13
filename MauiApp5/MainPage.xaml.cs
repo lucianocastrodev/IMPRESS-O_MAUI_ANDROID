@@ -1,22 +1,30 @@
-﻿#if ANDROID
-using MauiApp5.Platforms.Android;
-#endif
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Maui.Controls;
+using MauiApp5.Services; // Certifique-se de que o namespace da interface está correto
+
+
 namespace MauiApp5
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        // Variável de campo para armazenar a dependência injetada
+        private readonly IImpressoraServiceCupom _impressoraService;
 
-        public MainPage()
+        // A CORREÇÃO: O serviço de impressão DEVE ser injetado no construtor
+        public MainPage(IImpressoraServiceCupom impressoraService)
         {
             InitializeComponent();
+            // Armazena a instância injetada
+            _impressoraService = impressoraService;
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+ 
+        private async void PrintTestBtn_Clicked(object sender, EventArgs e)
         {
-#if ANDROID
+            PrintTestBtn.IsEnabled = false;
             // Criando o modelo da comanda
-           var pedido = new ComprovanteModel
+            var pedido = new ComprovanteModel
             {
                 Tipo = "PEDIDO",
                 Numero = 1234,
@@ -35,12 +43,12 @@ namespace MauiApp5
                 }
             };
 
-            // Instancia o serviço e imprime
-            var impressora = new ImpressoraService();
-            impressora.ImprimirComprovante("JP80H_D483", pedido);
-#else
-            DisplayAlert("Aviso", "Impressão disponível apenas no Android", "OK");
-#endif
+            // Usando o serviço injetado
+            _impressoraService.ImprimirComprovante("JP80H_D483", pedido);
+
+
+            await Task.Delay(2000);
+            PrintTestBtn.IsEnabled = true;
         }
     }
 }

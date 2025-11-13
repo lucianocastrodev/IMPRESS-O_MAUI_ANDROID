@@ -66,8 +66,8 @@ namespace MauiApp5.Platforms.Android
             sb.AppendLine(Line());
 
             // --- Cabeçalho de Itens (Linha Única) ---
-            string header = "ITEM".PadRight(20) + "QTD".PadRight(7) + "VLR. UNIT.".PadLeft(10) + "VLR. TOTAL".PadLeft(10);
-            /*string header = "ITEM".PadRight(20) + "QTD".PadLeft(7) + "VLR. UNIT.".PadLeft(10) + "VLR. TOTAL".PadLeft(10);*/
+            //string header = "ITEM".PadRight(20) + "QTD".PadRight(7) + "VLR. UNIT.".PadLeft(10) + "VLR. TOTAL".PadLeft(10);
+            string header = "ITEM".PadRight(14) + "QTD".PadLeft(9) + "VLR.UNIT".PadLeft(12) + "VLR.TOTAL".PadLeft(12);
             // Mudar para 15
             sb.AppendLine(header);
             sb.AppendLine(Line());
@@ -78,12 +78,12 @@ namespace MauiApp5.Platforms.Android
                 string desc = item.Descricao.Length > 47 ? item.Descricao.Substring(0, 47) : item.Descricao;
                 sb.AppendLine(desc);
 
-                string item_qtd = item.Quantidade.ToString().PadRight(7);
-                /*string item_qtd = item.Quantidade.ToString().PadLeft(7);*/
-                string item_vUnit = item.ValorUnitario.ToString("N2").PadLeft(10);
-                string item_total = item.Total.ToString("N2").PadLeft(10);
+                //string item_qtd = item.Quantidade.ToString().PadRight(7);
+                string item_qtd = item.Quantidade.ToString().PadLeft(9);
+                string item_vUnit = item.ValorUnitario.ToString("N2").PadLeft(12);
+                string item_total = item.Total.ToString("N2").PadLeft(12);
 
-                sb.AppendLine($"{new string(' ', 20)}{item_qtd}{item_vUnit}{item_total}");
+                sb.AppendLine($"{new string(' ', 14)}{item_qtd}{item_vUnit}{item_total}");
                 // Mudar para 15
                 sb.AppendLine(Line());
             }
@@ -102,7 +102,7 @@ namespace MauiApp5.Platforms.Android
             sb.AppendLine(Line());
 
             // --- Rodapé ---
-            sb.AppendLine(Center("*** DOCUMENTO SEM VALIDADE FISCAL ***"));
+            sb.AppendLine(Center("*** CUPOM SEM VALIDADE FISCAL ***"));
             sb.AppendLine(Center(""));
             sb.AppendLine(Center("OBRIGADO, VOLTE SEMPRE!"));           
             sb.AppendLine(Center("www.lanchonetesaborbom.com.br"));

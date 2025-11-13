@@ -9,6 +9,7 @@
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
+            UserAppTheme = AppTheme.Light;
             return new Window(new AppShell());
         }
     }

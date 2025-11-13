@@ -67,6 +67,7 @@ namespace MauiApp5.Platforms.Android
 
             // --- Cabeçalho de Itens (Linha Única) ---
             string header = "ITEM".PadRight(20) + "QTD".PadRight(7) + "VLR. UNIT.".PadLeft(10) + "VLR. TOTAL".PadLeft(10);
+            /*string header = "ITEM".PadRight(20) + "QTD".PadLeft(7) + "VLR. UNIT.".PadLeft(10) + "VLR. TOTAL".PadLeft(10);*/
             sb.AppendLine(header);
             sb.AppendLine(Line());
 
@@ -77,6 +78,7 @@ namespace MauiApp5.Platforms.Android
                 sb.AppendLine(desc);
 
                 string item_qtd = item.Quantidade.ToString().PadRight(7);
+                /*string item_qtd = item.Quantidade.ToString().PadLeft(7);*/
                 string item_vUnit = item.ValorUnitario.ToString("N2").PadLeft(10);
                 string item_total = item.Total.ToString("N2").PadLeft(10);
 
@@ -122,6 +124,5 @@ namespace MauiApp5.Platforms.Android
 }
 
 
-/*string header = "ITEM".PadRight(20) + "QTD".PadLeft(7) + "VLR. UNIT.".PadLeft(10) + "VLR. TOTAL".PadLeft(10);*/
 
-/*string item_qtd = item.Quantidade.ToString().PadLeft(7);*/
+

@@ -120,3 +120,8 @@ namespace MauiApp5.Platforms.Android
         }
     }
 }
+
+
+/*string header = "ITEM".PadRight(20) + "QTD".PadLeft(7) + "VLR. UNIT.".PadLeft(10) + "VLR. TOTAL".PadLeft(10);*/
+
+/*string item_qtd = item.Quantidade.ToString().PadLeft(7);*/

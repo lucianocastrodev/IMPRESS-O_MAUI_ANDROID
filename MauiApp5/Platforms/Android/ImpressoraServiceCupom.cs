@@ -76,13 +76,15 @@ namespace MauiApp5.Platforms.Android
                 string desc = item.Descricao.Length > 47 ? item.Descricao.Substring(0, 47) : item.Descricao;
                 sb.AppendLine(desc);
 
-                string item_qtd = item.Quantidade.ToString().PadLeft(9);
-                string item_vUnit = item.ValorUnitario.ToString("N2").PadLeft(12);
-                string item_total = item.Total.ToString("N2").PadLeft(12);
+                // Quantidade com 3 casas + unidade
+                string item_qtd = (item.Quantidade.ToString("N3") + " kg").PadLeft(9);
+                string item_vUnit = ("R$ " + item.ValorUnitario.ToString("N2")).PadLeft(12);
+                string item_total = ("R$ " + item.Total.ToString("N2")).PadLeft(12);
 
                 sb.AppendLine($"{new string(' ', 14)}{item_qtd}{item_vUnit}{item_total}");
                 sb.AppendLine(Line());
             }
+
 
             // Pula 2 linhas
             sb.AppendLine();

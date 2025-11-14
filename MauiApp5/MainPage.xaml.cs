@@ -31,17 +31,33 @@ namespace MauiApp5
                 Operador = "Luciano",
                 Data = DateTime.Now.ToString("dd/MM/yyyy"),
                 Hora = DateTime.Now.ToString("HH:mm"),
-                ValorBruto = 172.00m,
-                Desconto = 2.00m,
-                ValorFinal = 170.00m,
                 FormaPagamento = "DINHEIRO",
+
                 Itens = new List<ItemTicket>
                 {
-                    new ItemTicket { Descricao = "X-BURGUER", Quantidade = 1, ValorUnitario = 12.00m },
-                    new ItemTicket { Descricao = "REFRIGERANTE LATA", Quantidade = 2, ValorUnitario = 5.00m },
-                    new ItemTicket { Descricao = "BATATA FRITA", Quantidade = 1, ValorUnitario = 150.00m }
+                    new ItemTicket
+                    {
+                        Descricao = "X-BURGUER",
+                        Quantidade = 1.000m,
+                        ValorUnitario = 12.00m
+                    },
+
+                    new ItemTicket
+                    {
+                        Descricao = "REFRIGERANTE LATA",
+                        Quantidade = 2.000m,
+                        ValorUnitario = 5.00m
+                    },
+
+                    new ItemTicket
+                    {
+                        Descricao = "BATATA FRITA",
+                        Quantidade = 1.000m,
+                        ValorUnitario = 15.00m
+                    }
                 }
             };
+
 
             // Usando o serviço injetado
             _impressoraService.ImprimirComprovante("JP80H_D483", pedido);
